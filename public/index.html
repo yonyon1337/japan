@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>טיול יפן 2026 - גרסתי</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Japan Family Trip Guide</title>
     <style>
         * {
             margin: 0;
@@ -13,1439 +12,1361 @@
         }
 
         :root {
-            --primary: #d64045;
-            --secondary: #1a2332;
-            --accent: #f4a460;
-            --light: #f5f5f5;
-            --white: #ffffff;
-            --text-dark: #333;
-            --text-light: #666;
-            --border: #ddd;
-            --green: #48a868;
-            --orange: #ffa500;
-            --blue: #2196f3;
+            --primary: #e74c3c;
+            --primary-light: #ec7063;
+            --primary-dark: #c0392b;
+            --secondary: #3498db;
+            --accent: #f39c12;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --bg-white: #ffffff;
+            --border: #bdc3c7;
+            --success: #27ae60;
+            --warning: #f39c12;
         }
 
-        html {
-            scroll-behavior: smooth;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #ecf0f1;
+                --text-secondary: #bdc3c7;
+                --bg-light: #2c3e50;
+                --bg-white: #34495e;
+                --border: #7f8c8d;
+            }
         }
 
         body {
-            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            direction: rtl;
-            unicode-bidi: bidi-override;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* HEADER WITH IMAGE */
-        .header {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%231a2332" width="1200" height="400"/><circle cx="600" cy="200" r="150" fill="%23d64045" opacity="0.1"/><path d="M100,300 Q300,100 500,300 T900,300" stroke="%23f4a460" fill="none" opacity="0.2" stroke-width="3"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 80px 40px;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
             text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
             position: relative;
         }
 
-        .header h1 {
-            font-size: 3.2em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .header-subtitle {
-            font-size: 1.3em;
-            color: var(--accent);
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .header-dates {
-            font-size: 0.95em;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 15px;
-        }
-
-        .header-tag {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--white);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        /* NAVIGATION */
-        nav {
-            background: var(--white);
-            padding: 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            display: flex;
-            border-bottom: 3px solid var(--primary);
-        }
-
-        .nav-btn {
-            background: transparent;
-            color: var(--text-dark);
-            border: none;
-            padding: 18px 30px;
-            cursor: pointer;
-            font-size: 0.95em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-family: 'Rubik', sans-serif;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -3px;
-        }
-
-        .nav-btn:hover {
-            background: var(--light);
-            color: var(--primary);
-        }
-
-        .nav-btn.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        /* CONTAINER */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* SECTIONS */
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* INFO BOX */
-        .info-box {
-            background: var(--white);
-            padding: 30px;
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border);
             border-radius: 8px;
-            margin-bottom: 30px;
-            border-right: 5px solid var(--primary);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            font-size: 1em;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            transition: all 0.3s ease;
         }
 
-        .info-box h3 {
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 16px;
+            border: 2px solid var(--border);
+            background: var(--bg-white);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
             color: var(--primary);
-            font-size: 1.2em;
-            margin-bottom: 12px;
         }
 
-        .info-box p {
-            color: var(--text-light);
-            line-height: 1.7;
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
-        /* HIGHLIGHTS */
-        .highlights {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
             margin-bottom: 40px;
         }
 
-        .highlight-box {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .highlight-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-        }
-
-        .highlight-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .highlight-box h3 {
-            color: var(--text-dark);
-            font-size: 1.15em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .highlight-box p {
-            color: var(--text-light);
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        /* DAY CARDS */
-        .day-card {
-            background: var(--white);
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-        }
-
-        .day-card:hover {
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-        }
-
-        .day-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, #0f1620 100%);
-            color: var(--white);
-            padding: 20px 25px;
             cursor: pointer;
-            user-select: none;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
         }
 
-        .day-header:hover {
-            background: linear-gradient(135deg, #0f1620 0%, var(--secondary) 100%);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .day-header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-grow: 1;
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(n+5) { animation-delay: 0.5s; }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .day-number-circle {
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 1.2em;
+            color: white;
+            font-size: 3em;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
         }
 
-        .day-header-info h3 {
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .day-date {
-            font-size: 0.85em;
-            color: rgba(255,255,255,0.7);
-        }
-
-        .day-meta {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .difficulty-badge {
-            background: var(--orange);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-
-        .toggle-btn {
-            background: transparent;
-            border: none;
-            color: var(--white);
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .day-card.collapsed .toggle-btn {
-            transform: rotate(-90deg);
-        }
-
-        .day-content {
-            padding: 25px;
-            display: none;
-        }
-
-        .day-card.collapsed .day-content {
-            display: block;
-        }
-
-        .day-intro {
-            background: var(--light);
+        .card-content {
             padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            border-right: 4px solid var(--accent);
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        /* ACTIVITIES */
-        .activities-list {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 15px;
         }
 
-        .activity {
-            padding: 18px;
-            background: var(--light);
-            border-radius: 6px;
-            border-right: 4px solid var(--accent);
-        }
-
-        .activity-time {
-            color: var(--primary);
+        .card-category {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
             font-weight: 600;
-            font-size: 0.9em;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .activity-title {
-            font-size: 1.05em;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 6px;
-        }
-
-        .activity-location {
-            color: var(--text-light);
-            font-size: 0.9em;
+        h3 {
+            font-size: 1.3em;
             margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .card-location {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 12px;
         }
 
-        .activity-link {
+        .card-location::before {
+            content: "📍";
+            font-size: 1.1em;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .card-tips {
+            background: var(--bg-light);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .card-tips strong {
+            color: var(--text-primary);
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rating {
+            display: flex;
+            gap: 2px;
+            color: var(--warning);
+        }
+
+        .btn-details {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .btn-details:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            background: var(--bg-white);
+            border-radius: 12px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            margin: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4em;
+        }
+
+        .modal h2 {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .modal-section {
+            margin-bottom: 20px;
+        }
+
+        .modal-section h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .modal-section p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .modal-section ul {
+            margin-left: 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .modal-section li {
+            margin-bottom: 8px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-white);
+            border-radius: 10px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state h2 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-toggle button {
+            padding: 10px 16px;
+            border: 2px solid var(--border);
+            background: var(--bg-white);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .view-toggle button.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .modal-links a {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: var(--blue);
-            text-decoration: none;
-            font-weight: 500;
-            margin-right: 12px;
-            font-size: 0.9em;
-        }
-
-        .activity-link:hover {
-            text-decoration: underline;
-        }
-
-        .activity-description {
-            color: var(--text-dark);
-            margin-top: 8px;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        .whats-special {
-            background: #fff3cd;
-            border-right: 4px solid #ffc107;
-            padding: 12px;
-            margin-top: 10px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #856404;
-        }
-
-        .photo-tip {
-            background: #e3f2fd;
-            border-right: 4px solid var(--blue);
-            padding: 12px;
-            margin-top: 10px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #1565c0;
-        }
-
-        /* COMPARISON */
-        .comparison-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .day-comparison {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-
-        .comparison-header {
-            background: linear-gradient(135deg, var(--secondary) 0%, #0f1620 100%);
-            color: var(--white);
-            padding: 18px 25px;
-            font-weight: 600;
-            font-size: 1.05em;
-        }
-
-        .comparison-content {
-            padding: 25px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .comparison-column h4 {
-            color: var(--primary);
-            font-size: 1em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .comparison-item {
-            padding: 12px;
-            background: var(--light);
-            border-radius: 6px;
-            margin-bottom: 10px;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-
-        .difference-badge {
-            display: inline-block;
-            background: var(--green);
-            color: var(--white);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-right: 8px;
-        }
-
-        /* PRACTICAL INFO */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .info-card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--primary);
-        }
-
-        .info-card h3 {
-            color: var(--primary);
-            font-size: 1.05em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .info-card ul {
-            list-style: none;
-        }
-
-        .info-card li {
-            padding: 8px 0;
-            color: var(--text-dark);
-            border-bottom: 1px solid var(--border);
-            font-size: 0.9em;
-        }
-
-        .info-card li:last-child {
-            border-bottom: none;
-        }
-
-        .info-card li::before {
-            content: '•';
-            color: var(--primary);
-            font-weight: bold;
-            margin-left: 8px;
-            margin-right: 8px;
-        }
-
-        /* FOOTER */
-        footer {
+            padding: 10px 16px;
             background: var(--secondary);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        footer h2 {
-            font-size: 1.6em;
-            margin-bottom: 12px;
-            color: var(--accent);
+        .modal-links a:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
         }
 
-        footer p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95em;
-            margin: 6px 0;
+        .modal-map {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid var(--border);
         }
 
-        /* RESPONSIVE */
+        .map-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .map-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
-            .header {
-                padding: 50px 20px;
-            }
-
-            .header h1 {
+            h1 {
                 font-size: 2em;
             }
 
-            nav {
-                flex-wrap: wrap;
-            }
-
-            .nav-btn {
-                padding: 12px 16px;
-                font-size: 0.85em;
-            }
-
-            .highlights {
-                grid-template-columns: 1fr;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .comparison-content {
-                grid-template-columns: 1fr;
-            }
-
-            .day-header-left {
+            .controls {
                 flex-direction: column;
-                align-items: flex-start;
             }
 
-            .day-header {
-                flex-wrap: wrap;
-                gap: 12px;
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-map {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🗾 טיול יפן 2026</h1>
-        <div class="header-subtitle">גרסתי האישית</div>
-        <div class="header-dates">29 בספטמבר - 13 באוקטובר 2026</div>
-        <span class="header-tag">טכנולוגיה • תרבות • אוכל • הרפתקאות</span>
-    </div>
-
-    <nav>
-        <button class="nav-btn active" onclick="showSection('itinerary')">📅 יומן הטיול</button>
-        <button class="nav-btn" onclick="showSection('highlights')">⭐ הנקודות המרכזיות</button>
-        <button class="nav-btn" onclick="showSection('compare')">🔄 השוואה עם תוכנית אמא</button>
-        <button class="nav-btn" onclick="showSection('practical')">ℹ️ מידע שימושי</button>
-    </nav>
-
     <div class="container">
-        <!-- ITINERARY SECTION -->
-        <div id="itinerary" class="section active">
-            <div class="info-box">
-                <h3>📋 על התוכנית שלי</h3>
-                <p>זו גרסתי האישית של טיול יפן המשפחתי! שילבתי את כל האהובים עלי: טכנולוגיה ואנימה (אקיהברה, teamLab), אופנה (חרדים), אוכל רחוב (נישיקי, דוטונבורי), מקומות לצילום, Ghibli Park, Universal Studios, תרבות (קיוטו, הירושימה) וטבע (הקונה, אונסן). בואו נשווה כשנפגשים!</p>
+        <header>
+            <h1>🇯🇵 Japan Family Trip Guide</h1>
+            <p class="subtitle">Curated recommendations for an unforgettable adventure</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search locations, cafes, activities...">
             </div>
-
-            <!-- DAY 1 -->
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">1</div>
-                        <div class="day-header-info">
-                            <h3>יום נסיעה - טיסה לטוקיו</h3>
-                            <div class="day-date">יום ראשון, 29 בספטמבר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">נסיעה</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">🛫 יום הנסיעה - טיסה ארוכה לטוקיו, סרטי אנימה, שינה והכנה להרפתקה!</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">⏰ כל היום</div>
-                            <div class="activity-title">טיסה לנריטה או האנדה בטוקיו</div>
-                            <a href="https://www.narita-airport.jp/en/" class="activity-link" target="_blank">🗺️ נמל נריטה</a>
-                            <a href="https://www.haneda.tokyo.jp/" class="activity-link" target="_blank">🗺️ נמל האנדה</a>
-                            <div class="whats-special">💡 נקודה מיוחדת: תחזוקת החלקי זמן קשה - יישן בטיסה או צפה בסרטי אנימה!</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌙 ערב</div>
-                            <div class="activity-title">הגעה למלון בטוקיו</div>
-                            <div class="activity-description">התרגעות, הישנה מוקדמת, התאקלמות לאזור הזמן</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 2 -->
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">2</div>
-                        <div class="day-header-info">
-                            <h3>טוקיו - טכנולוגיה ואנימה</h3>
-                            <div class="day-date">יום שני, 30 בספטמבר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">קל</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">🏙️ התחלת הטיול בטוקיו - אקיהברה, שוק צואקיג'י, צומת שיבויה</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">🌅 בוקר (7:00-11:00)</div>
-                            <div class="activity-title">שוק צואקיג'י - אוכל טרי וטעמים מקומיים</div>
-                            <a href="https://goo.gl/maps/Tsukiji" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">סושי טרי, אוכל רחוב, טמגוטקי, ממתקי אנימה יפניים</div>
-                            <div class="whats-special">✨ מה מיוחד: טעמים אותנטיים של טוקיו בבוקר</div>
-                            <div class="photo-tip">📸 נקודת צילום: צבעי השוק, סושי טרי, אנשים רוצים</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌤️ אחה"צ (13:00-18:00)</div>
-                            <div class="activity-title">אקיהברה - Electric Town & אנימה</div>
-                            <a href="https://goo.gl/maps/Akihabara" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">חנויות אנימה, קייפה משחקים, טכנולוגיה, פגודות נאיון</div>
-                            <div class="whats-special">✨ מה מיוחד: מרכז התרבות הטכנו-אנימה של טוקיו</div>
-                            <div class="photo-tip">📸 נקודת צילום: רחובות אקיהברה בלילה עם הנאיונים</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌙 ערב (19:00-22:00)</div>
-                            <div class="activity-title">צומת שיבויה וארוחת ערב</div>
-                            <a href="https://goo.gl/maps/ShibuyaCrossing" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">צומת הולכי רגל הכי עמוס בעולם, מסעדה מקומית, קפה</div>
-                            <div class="whats-special">✨ מה מיוחד: הצומת האיקוניקה שמופיעה בסרטים</div>
-                            <div class="photo-tip">📸 נקודת צילום: צומת שיבויה מטפחה Starbucks</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 3 -->
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">3</div>
-                        <div class="day-header-info">
-                            <h3>טוקיו - אופנה וקימונו</h3>
-                            <div class="day-date">יום שלישי, 1 באוקטובר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">בינוני</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">👗 יום בעיר האופנה - חרדים, קימונו, טרנדים יפניים</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">🌅 בוקר (8:00-12:00)</div>
-                            <div class="activity-title">חרדים - בירת האופנה של יפן</div>
-                            <a href="https://goo.gl/maps/Harajuku" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">טקשיטה סטריט, בגדים וינטג', בתיקים ייחודיים, דוכנים צבעוניים</div>
-                            <div class="whats-special">✨ מה מיוחד: מרכז האופנה הצעיר של יפן, טרנדים חיים</div>
-                            <div class="photo-tip">📸 נקודת צילום: רחובות חרדים, קבוצות אנשים עם קאוטשורים צבעוניים</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌤️ אחה"צ (13:00-17:00)</div>
-                            <div class="activity-title">מקדש מייג'י וקומו-טסנדו</div>
-                            <a href="https://goo.gl/maps/MeijiShrine" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">מקדש קדוש בטבע, רחוב קניות יוקרתי, עיצוב מודרני יפני</div>
-                            <div class="whats-special">✨ מה מיוחד: ניגודיות בין טבע קדוש לאופנה עירונית</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌙 ערב (18:00-21:00)</div>
-                            <div class="activity-title">חווייה קימונו והלבשה מסורתית</div>
-                            <a href="https://kimono-rental.jp/" class="activity-link" target="_blank">🗺️ השכרת קימונו</a>
-                            <div class="activity-description">לבישת קימונו מסורתי, הטיול בחרדים בבגדים מסורתיים</div>
-                            <div class="whats-special">✨ מה מיוחד: חווייה אותנטית של יפן מסורתית</div>
-                            <div class="photo-tip">📸 נקודת צילום: רחובות חרדים בקימונו צבעוני</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 4 -->
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">4</div>
-                        <div class="day-header-info">
-                            <h3>טוקיו - טכנולוגיה עתידנית</h3>
-                            <div class="day-date">יום רביעי, 2 באוקטובר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">קשה</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">🤖 יום טכנולוגיה - teamLab, מוזיאונים, טכנולוגיה מודרנית</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">🌅 בוקר (9:00-13:00)</div>
-                            <div class="activity-title">teamLab Borderless - אמנות דיגיטלית</div>
-                            <a href="https://www.teamlab.art/jp/aw-tsukiji/" class="activity-link" target="_blank">🗺️ teamLab</a>
-                            <div class="activity-description">חווייה אמנותית דיגיטלית משגעת, אור, צבעים, טכנולוגיה</div>
-                            <div class="whats-special">✨ מה מיוחד: עתיד אמנות וטכנולוגיה בעין אחת</div>
-                            <div class="photo-tip">📸 נקודת צילום: התקנות אמנות צבעוניות דינמיות</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌤️ אחה"צ (14:00-18:00)</div>
-                            <div class="activity-title">מוזיאון מדע של טוקיו (Miraikan)</div>
-                            <a href="https://www.miraikan.jst.go.jp/en/" class="activity-link" target="_blank">🗺️ Miraikan</a>
-                            <div class="activity-description">טכנולוגיה עתידנית, רובוטים, שטחי ניסוי</div>
-                            <div class="whats-special">✨ מה מיוחד: מגע עם העתיד, טכנולוגיה יפנית עתידנית</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌙 ערב (19:00-22:00)</div>
-                            <div class="activity-title">חקר שינג'וקו הלילה</div>
-                            <a href="https://goo.gl/maps/Shinjuku" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">רחובות בהוקים, סמטאות סמויות, אוכל רחוב, נאיונים</div>
-                            <div class="photo-tip">📸 נקודת צילום: נאיונים של שינג'וקו בלילה</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 5 -->
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">5</div>
-                        <div class="day-header-info">
-                            <h3>טוקיו → הקונה - הר פוג'י וטבע</h3>
-                            <div class="day-date">יום חמישי, 3 באוקטובר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">בינוני</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">🗻 נסיעה להקונה - אגם אשי, הר פוג'י, טבע ודומה חמות</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">🌅 בוקר (8:00-12:00)</div>
-                            <div class="activity-title">נסיעה לעיר הקונה</div>
-                            <a href="https://www.hakone.com/" class="activity-link" target="_blank">🗺️ אתר הקונה</a>
-                            <div class="activity-description">רכבת מטוקיו (1.5 שעות), נוף הרים יפה</div>
-                            <div class="whats-special">✨ מה מיוחד: נוף מהיר בערות חלונות הרכבת</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌤️ אחה"צ (13:00-17:00)</div>
-                            <div class="activity-title">אגם אשי וממראות הר פוג'י</div>
-                            <a href="https://goo.gl/maps/LakeAshi" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">טיול אגם, ממראות הר פוג'י (בימים בהירים)</div>
-                            <div class="whats-special">✨ מה מיוחד: הר פוג'י האיקוני בממראה</div>
-                            <div class="photo-tip">📸 נקודת צילום: השתקפות הר פוג'י באגם (בתנאים טובים)</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌙 ערב (18:00-21:00)</div>
-                            <div class="activity-title">אונסן - דומה חמות מסורתי</div>
-                            <a href="https://ryokan.hakone.com/" class="activity-link" target="_blank">🗺️ אירוואנים בהקונה</a>
-                            <div class="activity-description">אמבטיה מסורתית בטמפ' חמות טבעית</div>
-                            <div class="whats-special">✨ מה מיוחד: שחייה בטמפ' חמות אותנטית יפנית</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 6 -->
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">6</div>
-                        <div class="day-header-info">
-                            <h3>הקונה - טבע, אמנות ורוגע</h3>
-                            <div class="day-date">יום שישי, 4 באוקטובר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">קל</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">🎨 יום רוגע - מוזיאום אמנות, טבע, דומה נוספות</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">🌅 בוקר (9:00-12:00)</div>
-                            <div class="activity-title">מוזיאום האמנות הפתוח של הקונה</div>
-                            <a href="https://www.hakone-oam.or.jp/english" class="activity-link" target="_blank">🗺️ המוזיאום</a>
-                            <div class="activity-description">פסלות בטבע, אמנות, גנים, נוף הרים</div>
-                            <div class="whats-special">✨ מה מיוחד: אמנות טבעית עם הר פוג'י ברקע</div>
-                            <div class="photo-tip">📸 נקודת צילום: פסלות עם הר פוג'י</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌤️ אחה"צ (13:00-17:00)</div>
-                            <div class="activity-title">רכיבה בטלפריק או כבל</div>
-                            <a href="https://www.hakone-ropeway.com/" class="activity-link" target="_blank">🗺️ טלפריק הקונה</a>
-                            <div class="activity-description">נוף הרים, עמק געשי, מינרלי טבעיים</div>
-                            <div class="whats-special">✨ מה מיוחד: עמק געשי ונוף דרמטי</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌙 ערב (18:00-21:00)</div>
-                            <div class="activity-title">דומה נוספת וארוחת קייסקי</div>
-                            <div class="activity-description">ארוחה מסורתית רבת קורסים בריוואן</div>
-                            <div class="whats-special">✨ מה מיוחד: חוויית קייסקי אותנטית יפנית</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 7-15 - Similar structure with collapsible cards -->
-            <!-- Abbreviated for space - in full version would be complete -->
-
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">7</div>
-                        <div class="day-header-info">
-                            <h3>הקונה → קיוטו - יפן מסורתית</h3>
-                            <div class="day-date">יום שבת, 5 באוקטובר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">בינוני</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">🚄 נסיעה ל-Shinkansen לקיוטו - יפן מסורתית</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">🌅 בוקר (8:00-12:00)</div>
-                            <div class="activity-title">נסיעה לקיוטו ב-Shinkansen</div>
-                            <a href="https://www.jrcentral.co.jp/en/" class="activity-link" target="_blank">🗺️ Shinkansen</a>
-                            <div class="activity-description">רכבת קולע, נוף בר בערות החלון</div>
-                            <div class="whats-special">✨ מה מיוחד: חווית הנסיעה היפנית הידועה</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌤️ אחה"צ (13:00-18:00)</div>
-                            <div class="activity-title">הגעה לקיוטו וחקר גיון</div>
-                            <a href="https://goo.gl/maps/Gion" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">מחוז גיישה מסורתי, בתים עתיקים, רחובות מהוקים</div>
-                            <div class="whats-special">✨ מה מיוחד: חזור בזמן ליפן מסורתית</div>
-                            <div class="photo-tip">📸 נקודת צילום: רחובות גיון בערב</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="day-card collapsed">
-                <div class="day-header" onclick="toggleDay(this)">
-                    <div class="day-header-left">
-                        <div class="day-number-circle">8</div>
-                        <div class="day-header-info">
-                            <h3>קיוטו - תרבות יפנית מלאה</h3>
-                            <div class="day-date">יום ראשון, 6 באוקטובר</div>
-                        </div>
-                    </div>
-                    <div class="day-meta">
-                        <span class="difficulty-badge">קשה</span>
-                        <button class="toggle-btn" onclick="event.stopPropagation()">▶️</button>
-                    </div>
-                </div>
-                <div class="day-content">
-                    <div class="day-intro">🍵 יום תרבות מלא - טקס תה, מקדשים, קימונו</div>
-                    <div class="activities-list">
-                        <div class="activity">
-                            <div class="activity-time">🌅 בוקר (9:00-11:00)</div>
-                            <div class="activity-title">טקס תה מסורתי</div>
-                            <a href="https://www.kyotokawacho.or.jp/" class="activity-link" target="_blank">🗺️ חקר קיוטו</a>
-                            <div class="activity-description">הכנת מטשה, אתיקט יפני, תרבות</div>
-                            <div class="whats-special">✨ מה מיוחד: למד תרבות וודו יפנית אותנטית</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌤️ אחה"צ (13:00-16:00)</div>
-                            <div class="activity-title">מקדש פושימי אינארי</div>
-                            <a href="https://goo.gl/maps/FushimiInari" class="activity-link" target="_blank">🗺️ מפה</a>
-                            <div class="activity-description">אלפי שערים אדומים טוריי, מסלולים בהרים</div>
-                            <div class="whats-special">✨ מה מיוחד: הנוף האייקוני של יפן</div>
-                            <div class="photo-tip">📸 נקודת צילום: שערים אדומים אייקוניים</div>
-                        </div>
-                        <div class="activity">
-                            <div class="activity-time">🌙 ערב (18:00-21:00)</div>
-                            <div class="activity-title">חווייה קימונו וארוחת ערב</div>
-                            <div class="activity-description">לבישת קימונו מסורתי, הטיול בקיוטו</div>
-                            <div class="whats-special">✨ מה מיוחד: חווייה אותנטית של יפן מסורתית</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional days 9-15 would follow same structure -->
-            <div style="text-align: center; padding: 40px; color: var(--text-light);">
-                <p>ימים 9-15 מפורטים בעת לחיצה על כל יום</p>
-            </div>
-
-        </div>
-
-        <!-- HIGHLIGHTS SECTION -->
-        <div id="highlights" class="section">
-            <div class="info-box">
-                <h3>⭐ הנקודות המרכזיות של הטיול</h3>
-                <p>הרעיון של הטיול שלי משלב את כל האהובים עלי: טכנולוגיה, אנימה, אופנה, אוכל, מקומות לצילום וחוויות תרבות!</p>
-            </div>
-
-            <div class="highlights">
-                <div class="highlight-box">
-                    <div class="highlight-number">1</div>
-                    <h3>🍜 אוכל & שווקים רחוב</h3>
-                    <p>צואקיג'י, נישיקי, דוטונבורי - הטעמים האותנטיים של יפן בכל פינה</p>
-                </div>
-
-                <div class="highlight-box">
-                    <div class="highlight-number">2</div>
-                    <h3>🤖 טכנולוגיה & אנימה</h3>
-                    <p>אקיהברה, teamLab, מוזיאונים טכנולוגיים - עתיד היום</p>
-                </div>
-
-                <div class="highlight-box">
-                    <div class="highlight-number">3</div>
-                    <h3>👗 אופנה & עיצוב</h3>
-                    <p>חרדים, קימונו, בגדים וינטג' - טרנדים יפניים חיים</p>
-                </div>
-
-                <div class="highlight-box">
-                    <div class="highlight-number">4</div>
-                    <h3>🏯 תרבות יפנית</h3>
-                    <p>קיוטו, מקדשים, גיון, הירושימה - יפן המסורתית</p>
-                </div>
-
-                <div class="highlight-box">
-                    <div class="highlight-number">5</div>
-                    <h3>🎢 הרפתקאות</h3>
-                    <p>Ghibli Park, Universal Studios - משחק וביג מופעים</p>
-                </div>
-
-                <div class="highlight-box">
-                    <div class="highlight-number">6</div>
-                    <h3>📸 צילום & טבע</h3>
-                    <p>הר פוג'י, אגמים, מקומות צילום - זיכרונות חזותיים</p>
-                </div>
+            <div class="category-filter" id="categoryFilter"></div>
+            <div class="view-toggle">
+                <button class="active" onclick="switchView('grid')">Grid</button>
             </div>
         </div>
 
-        <!-- COMPARISON SECTION -->
-        <div id="compare" class="section">
-            <div class="info-box">
-                <h3>🔄 השוואה בין התוכנית שלי לתוכנית של אמא</h3>
-                <p>ההערות האמיתיות שלי על כל יום של התוכנית של אמא - מה טוב, מה חלש, ואיך שיפרתי את זה!</p>
-            </div>
+        <div id="gridView">
+            <div class="grid" id="itemsGrid"></div>
+        </div>
 
-            <div class="comparison-container">
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 1 - יום נסיעה (29 בספטמבר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                <strong>טיסה לטוקיו</strong><br>
-                                הגעה בערב, התרגעות במלון
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #e8f5e9; color: var(--green); font-weight: 500;">
-                                ✓ בסדר
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <h2>No results found</h2>
+            <p>Try adjusting your search or filters</p>
+        </div>
 
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 2 - טוקיו (30 בספטמבר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                <strong>בוקר:</strong> שוק אמא<br>
-                                <strong>אחה"צ:</strong> מקומות תרבותיים<br>
-                                <strong>ערב:</strong> Ginza
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 התוכנית שלי</h4>
-                            <div class="comparison-item">
-                                <strong>בוקר:</strong> צואקיג'י<br>
-                                <span class="difference-badge">שונה</span> אקיהברה (טכנולוגיה ואנימה)<br>
-                                <strong>ערב:</strong> שיבויה
-                            </div>
-                            <div class="comparison-item" style="margin-top: 15px; background: #e3f2fd;">
-                                <strong>הערה שלי:</strong> הוספתי אקיהברה לטכנולוגיה ואנימה - רוצה לחווה את תרבות האנימה היפנית!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 3 - טוקיו (1 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                <strong>בוקר:</strong> מקדשים ומקומות תרבות<br>
-                                <strong>אחה"צ:</strong> מוזיאונים<br>
-                                <strong>ערב:</strong> Shibuya 109 + משקפיים
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #fff3cd;">
-                                "לא יודע אם עפתי על מקומות הקניות (Shibuya 109) - ולמה לגרור את כולם למשקפיים?"
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e8f5e9;">
-                                <strong>התוכנית שלי:</strong> חרדים (אופנה), מייג'י + Omotesando, קימונו, שינג'וקו
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 4 - טוקיו (2 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                <strong>בוקר/אחה"צ:</strong> teamLab Planets<br>
-                                <strong>ערב:</strong> צומת שיבויה
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #ffebee;">
-                                "teamLab Planets מרגיש גימיק זול - לא היה משהו כזה בארץ? גם לא הבנתי את הקרמיקה"
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e8f5e9;">
-                                <strong>התוכנית שלי:</strong> teamLab Borderless (שונה!) + מוזיאון טכנולוגיה (עדיין טכנו אבל פחות גימיק)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 5 - הקונה (3 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                הקונה - טבע, אונסן, טיול הרים
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #e8f5e9;">
-                                ✓ בסדר (ראיתי שיש עוד דברים באיזור)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 6 - הקונה (4 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                מוזיאום אמנות, אונסן נוספת, טיול רוגע
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #ffebee;">
-                                "יום חלש - מרגיש שנוסעים קצת ואז חצי יום סתם. מרגיש מבוזבז"
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 7 - קיוטו (5 באוקטובר) - Shinkansen</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                נסיעה ל-Shinkansen, הגעה לקיוטו, גיון
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #e8f5e9;">
-                                ✓ בסדר
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 8 - קיוטו (6 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                <strong>בוקר:</strong> טקס תה<br>
-                                <strong>אחה"צ:</strong> פושימי אינארי<br>
-                                <strong>ערב:</strong> קימונו וגיון
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #e8f5e9;">
-                                ✓ אחלה יום
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 9 - קיוטו (7 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                קינקאקו-ג'י, ריוואן-ג'י, וגנים זן
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #ffebee;">
-                                "יום מבוזבז"
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 10 - קיוטו (8 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                <strong>בוקר:</strong> שוק נישיקי<br>
-                                <strong>אחה"צ:</strong> שביל הפילוסוף<br>
-                                <strong>ערב:</strong> גיון וארוחה
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #fff3cd;">
-                                "בוקר די מבוזבז"
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e8f5e9;">
-                                אבל עיקרון התוכנית בסדר - אני רוצה את הנישיקי וגיון
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 11 - אוסקה (9 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                <strong>עד 18:00</strong> נסיעה בזמן<br>
-                                <strong>אחרי 18:00</strong> זמן חופשי בדוטונבורי
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #ffebee;">
-                                "עד השעה 18 כלום ואחרי זה זמן חופשי? (שיש בכל מקרה בימים אחרים)"
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e3f2fd;">
-                                <strong>התוכנית שלי:</strong> Ghibli Park היום! (ביום 11, טיול מ-Kyoto)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 12 - אוסקה (10 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                קארטה<br>
-                                חצי יום חופשי בדוטונבורי
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #ffebee;">
-                                "קארטה? באמת? יהיה עלוב. החלק השני של היום נשמע מגניב"
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e3f2fd;">
-                                <strong>התוכנית שלי:</strong> Universal Studios יום מלא! (הרבה יותר טוב מקארטה)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 13 - הירושימה (11 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                אתר השלום בהירושימה, טיול בעיר
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #fff3cd;">
-                                "על הנייר סבבה אבל יום שלם? סתם יום..."
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e8f5e9;">
-                                אבל בחינה של היסטוריה וחשיבות - זה משמעותי
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 14 - Miyajima (12 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                ספינה למיאג'יימה, טוריי אדום, מקדש איצוקושימה
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #fff3cd;">
-                                "על הנייר סבבה אבל יום שלם? סתם יום..."
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e8f5e9;">
-                                המקום כמו כן אייקוני וצילומים יפים
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-comparison">
-                    <div class="comparison-header">יום 15 - חזרה הביתה (13 באוקטובר)</div>
-                    <div class="comparison-content">
-                        <div class="comparison-column">
-                            <h4>🤍 תוכנית אמא</h4>
-                            <div class="comparison-item">
-                                קניות סופיות בהירושימה או בדרך<br>
-                                נסיעה לנמל התעופה בערב
-                            </div>
-                        </div>
-                        <div class="comparison-column">
-                            <h4>💙 הערות שלי</h4>
-                            <div class="comparison-item" style="background: #ffebee;">
-                                "לא עושים כלום ביום הזה?"
-                            </div>
-                            <div class="comparison-item" style="margin-top: 12px; background: #e8f5e9;">
-                                מה זה עולה לא עושים - קניות אבל כן דברים אחרים...
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="background: #e8f5e9; padding: 25px; border-radius: 8px; margin-top: 30px; border-right: 5px solid var(--green);">
-                <h3 style="color: var(--green); margin-bottom: 12px;">📊 סיכום הפידבק שלי על התוכנית של אמא</h3>
-
-                <div style="margin-bottom: 20px;">
-                    <p><strong>ימים טובים:</strong></p>
-                    <ul style="margin-top: 8px; list-style: none; color: var(--text-dark);">
-                        <li>✓ יום 1 - בסדר (נסיעה)</li>
-                        <li>✓ יום 5 - בסדר (הקונה)</li>
-                        <li>✓ יום 8 - אחלה יום (קיוטו מלא)</li>
-                        <li>✓ יום 7 - בסדר (Shinkansen)</li>
-                    </ul>
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <p><strong>ימים שצריך לשיפור:</strong></p>
-                    <ul style="margin-top: 8px; list-style: none; color: var(--text-dark);">
-                        <li>⚠️ יום 2 - קניות (Shibuya 109) - יותר מדי קניות</li>
-                        <li>⚠️ יום 3 - מוזיאונים בלבד - צריך הרבה יותר אופנה</li>
-                        <li>⚠️ יום 4 - teamLab Planets מרגיש גימיק</li>
-                        <li>⚠️ יום 6 - יום חלש, מרגיש מבוזבז</li>
-                        <li>⚠️ יום 9 - יום מבוזבז</li>
-                        <li>⚠️ יום 10 - בוקר מבוזבז</li>
-                        <li>⚠️ יום 11 - עד 18:00 אין כלום</li>
-                        <li>⚠️ יום 12 - קארטה? באמת עלוב</li>
-                        <li>⚠️ יום 13-14 - על הנייר סבבה אבל ימים שלמים שסתם</li>
-                        <li>⚠️ יום 15 - לא עושים כלום</li>
-                    </ul>
-                </div>
-
-                <div style="background: white; padding: 15px; border-radius: 6px; border-right: 4px solid var(--primary);">
-                    <p><strong>השיפורים שלי:</strong></p>
-                    <ul style="margin-top: 8px; list-style: none; color: var(--text-dark); font-size: 0.95em;">
-                        <li>🔄 <strong>יום 2:</strong> אקיהברה (טכנולוגיה ואנימה) במקום קניות</li>
-                        <li>🔄 <strong>יום 3:</strong> חרדים + קימונו (אופנה אותנטית)</li>
-                        <li>🔄 <strong>יום 4:</strong> teamLab Borderless (פחות גימיק)</li>
-                        <li>🔄 <strong>יום 11:</strong> Ghibli Park (יום מלא מגניב)</li>
-                        <li>🔄 <strong>יום 12:</strong> Universal Studios (הרבה יותר טוב מקארטה)</li>
-                        <li>🔄 <strong>יום 13-14:</strong> הירושימה ומיאג'יימה (משמעותיים היסטורית)</li>
-                    </ul>
-                </div>
-
-                <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9em;"><em>התוכנית של אמא טובה כבסיס! שיפרתי אותה בדברים שאוהבת - פחות קניות, יותר טכנולוגיה, אנימה, אופנה וחוויות שלא מרגישות "מבוזבזות"</em></p>
+        <div class="modal" id="detailsModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <div id="modalBody"></div>
             </div>
         </div>
 
-        <!-- PRACTICAL INFO SECTION -->
-        <div id="practical" class="section">
-            <div class="info-box">
-                <h3>ℹ️ מידע שימושי וטיפי</h3>
-                <p>כל מה שאתה צריך לדעת כדי להקים את הטיול המושלם</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>🗺️ סקירת הנתיב</h3>
-                    <ul>
-                        <li><strong>ימים 1-4:</strong> טוקיו</li>
-                        <li><strong>ימים 5-6:</strong> הקונה (אזור הר פוג'י)</li>
-                        <li><strong>ימים 7-10:</strong> קיוטו</li>
-                        <li><strong>ימים 11-12:</strong> אוסקה וGhibli Park</li>
-                        <li><strong>ימים 13-14:</strong> הירושימה וMiyajima</li>
-                        <li><strong>יום 15:</strong> חזרה הביתה</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h3>🎫 חובה הזמנה מראש</h3>
-                    <ul>
-                        <li>כרטיסי Ghibli Park (זמן ספציפי!)</li>
-                        <li>Universal Studios Japan</li>
-                        <li>טקס תה מסורתי</li>
-                        <li>השכרת קימונו</li>
-                        <li>Ryokan בהקונה</li>
-                        <li>Shinkansen (רכבת קולע)</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h3>🚆 תחבורה</h3>
-                    <ul>
-                        <li>Japan Rail Pass (מרחקים ארוכים)</li>
-                        <li>כרטיס IC (Suica/Pasmo)</li>
-                        <li>מטרו/רכבת (היעילים)</li>
-                        <li>אוטובוס (אזורים קטנים)</li>
-                        <li>מוניות (יקרות אך זמינות)</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h3>💰 טיפי תקציב</h3>
-                    <ul>
-                        <li>אוכל רחוב זול וטעים</li>
-                        <li>חנויות נוחות 7-11</li>
-                        <li>תפריטים מוגדרים טובים</li>
-                        <li>הנחות מוזיאונים</li>
-                        <li>מזומן עדיין עדיף</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h3>📱 יישומים חשובים</h3>
-                    <ul>
-                        <li>Google Maps (הורד לאופליין)</li>
-                        <li>Hyperdia (לוחות רכבות)</li>
-                        <li>PayPay (תשלום נייד)</li>
-                        <li>Tabelog (ביקורות מסעדות)</li>
-                        <li>Pocket WiFi או SIM</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h3>🌤️ מזג אוויר באוקטובר</h3>
-                    <ul>
-                        <li>טמפ' ממוצעת: 15-25°C</li>
-                        <li>ז'קט קל נחוץ</li>
-                        <li>גשם נמוך בדרך כלל</li>
-                        <li>עונה סתיו יפה</li>
-                        <li>מזג אוויר לטיול אדיר</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="footer">
+            <p>📍 Plan your perfect Japan adventure • Make memories with family</p>
         </div>
     </div>
-
-    <footer>
-        <h2>✨ בואו נשווה את הטיולים שלנו! 🎌</h2>
-        <p>יצור להתכונן להרפתקה משפחתית</p>
-        <p>29 בספטמבר - 13 באוקטובר 2026</p>
-    </footer>
 
     <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
+        const locations = [
+            // TEMPLES & HISTORICAL
+            {
+                id: 1,
+                name: "Kiyomizu-dera Temple",
+                category: "Temples & Shrines",
+                location: "Kyoto",
+                lat: 34.9949,
+                lng: 135.7819,
+                emoji: "⛩️",
+                image: "https://images.unsplash.com/photo-1524224569633-e8a6e3b67374?w=800&h=500&fit=crop",
+                description: "One of Kyoto's most iconic temples, famous for its wooden veranda that offers stunning views of the city.",
+                tips: "Best visited early morning to avoid crowds. The main hall is especially beautiful at sunset.",
+                hours: "6:00 AM - 6:00 PM (seasonally adjusted)",
+                admission: "¥400 ($3 USD)",
+                highlights: ["Iconic wooden stage", "Panoramic city views", "Beautiful autumn foliage", "Cherry blossoms in spring"],
+                activities: ["Photography", "Meditation", "Temple exploration"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Kiyomizu-dera" },
+                    { name: "Official Website", url: "https://www.kiyomizu.or.jp/" },
+                    { name: "Book Tickets", url: "https://www.klook.com" }
+                ]
+            },
+            {
+                id: 2,
+                name: "Nagamachi Samurai District",
+                category: "Historic Districts",
+                location: "Kanazawa",
+                lat: 36.5638,
+                lng: 136.6510,
+                emoji: "🏯",
+                image: "https://images.unsplash.com/photo-1578821314433-4b5d3e50e3d2?w=800&h=500&fit=crop",
+                description: "Beautifully preserved samurai geisha district with traditional wooden houses and narrow streets.",
+                tips: "Wear traditional kimono (rental available) for an immersive experience. Visit museums inside preserved samurai houses.",
+                hours: "Open 24/7 (Museums vary)",
+                admission: "Free to explore, museum fees vary (¥1,000-2,500)",
+                highlights: ["Traditional architecture", "Samurai museums", "Art galleries", "Traditional teahouses"],
+                activities: ["Walking tours", "Museum visits", "Photography", "Tea ceremonies"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Nagamachi+Samurai+District" },
+                    { name: "Kanazawa Tourism", url: "https://www.kanazawa-tourism.com/" }
+                ]
+            },
+            {
+                id: 3,
+                name: "Himeji Castle",
+                category: "Castles",
+                location: "Himeji",
+                lat: 34.8379,
+                lng: 134.6925,
+                emoji: "🏯",
+                image: "https://images.unsplash.com/photo-1540959375944-7049f642e9f1?w=800&h=500&fit=crop",
+                description: "Japan's most visited castle, renowned for its pristine white exterior and stunning hilltop location.",
+                tips: "Allocate 2-3 hours for exploration. Wear comfortable shoes for climbing. Spring cherry blossoms are spectacular.",
+                hours: "9:00 AM - 4:00 PM",
+                admission: "¥1,050 ($7 USD)",
+                highlights: ["White castle architecture", "Panoramic views", "Cherry blossoms", "Defensive structures"],
+                activities: ["Castle exploration", "Garden walks", "Photography", "Historical learning"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Himeji+Castle" },
+                    { name: "Official Site", url: "http://www.himejicastle.jp/en/" },
+                    { name: "Book Tour", url: "https://www.klook.com/en/activity/1265-himeji-castle/" }
+                ]
+            },
+            {
+                id: 4,
+                name: "Kyoto Gyoen National Garden",
+                category: "Gardens & Parks",
+                location: "Kyoto",
+                lat: 35.0143,
+                lng: 135.7367,
+                emoji: "🌸",
+                image: "https://images.unsplash.com/photo-1522383150241-abab59a26e48?w=800&h=500&fit=crop",
+                description: "Beautiful imperial garden with seasonal flowers, peaceful walking paths, and traditional landscapes.",
+                tips: "Visit in spring for cherry blossoms or fall for autumn colors. Bring a picnic blanket.",
+                hours: "9:00 AM - 4:00 PM (Closed Mondays)",
+                admission: "¥1,000 ($7 USD)",
+                highlights: ["Cherry blossoms", "Maple trees", "Water features", "Traditional landscaping"],
+                activities: ["Picnicking", "Walking", "Photography", "Meditation"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Kyoto+Gyoen" },
+                    { name: "Learn More", url: "https://www.fhktr.go.jp/" }
+                ]
+            },
+
+            // CAFES - COFFEE
+            {
+                id: 5,
+                name: "Koffee Mameya",
+                category: "Coffee Shops",
+                location: "Tokyo",
+                lat: 35.0055,
+                lng: 135.7750,
+                emoji: "☕",
+                image: "https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=800&h=500&fit=crop",
+                description: "Award-winning specialty coffee shop known for precise pour-over techniques and single-origin beans.",
+                tips: "Arrive early as it's small and popular. Watch the barista's skilled pour-over process. Don't miss their seasonal offerings.",
+                hours: "11:00 AM - 7:00 PM (Closed Mondays)",
+                admission: "Coffee ¥700-1,200 ($5-8 USD)",
+                highlights: ["Single-origin beans", "Pour-over art", "Specialty drinks", "Minimalist aesthetic"],
+                activities: ["Coffee tasting", "Observing barista", "Reading", "Conversation"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Koffee+Mameya+Kyoto" },
+                    { name: "Instagram", url: "https://www.instagram.com/search/?q=koffee_mameya" }
+                ]
+            },
+            {
+                id: 6,
+                name: "Hatcoffee",
+                category: "Coffee Shops",
+                location: "Tokyo",
+                lat: 35.0082,
+                lng: 135.7742,
+                emoji: "☕",
+                image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=500&fit=crop",
+                description: "Charming coffee shop with a focus on sustainable sourcing and traditional Japanese hospitality.",
+                tips: "Try their signature blend. The atmosphere is warm and welcoming. Perfect for a quiet moment.",
+                hours: "10:00 AM - 6:00 PM",
+                admission: "Coffee ¥600-900 ($4-6 USD)",
+                highlights: ["Sustainable coffee", "Cozy ambiance", "Knowledgeable baristas", "Light snacks"],
+                activities: ["Coffee appreciation", "Relaxation", "Work/study"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Hatcoffee+Kyoto" }
+                ]
+            },
+            {
+                id: 7,
+                name: "Cafe Reissue",
+                category: "Coffee Shops",
+                location: "Shibuya, Tokyo",
+                lat: 35.6595,
+                lng: 139.7004,
+                emoji: "☕",
+                image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=500&fit=crop",
+                description: "Trendy Tokyo coffee shop with industrial chic design and high-quality espresso drinks.",
+                tips: "Perfect for catching the vibe of modern Shibuya. Try their cold brew during summer.",
+                hours: "8:00 AM - 7:00 PM",
+                admission: "Coffee ¥700-1,000 ($5-7 USD)",
+                highlights: ["Industrial design", "Quality espresso", "Toast sets", "Vibrant atmosphere"],
+                activities: ["Coffee tasting", "People watching", "Digital nomad work"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Cafe+Reissue+Shibuya" }
+                ]
+            },
+            {
+                id: 8,
+                name: "Janai Coffee",
+                category: "Coffee Shops",
+                location: "Ebisu, Tokyo",
+                lat: 35.6451,
+                lng: 139.7149,
+                emoji: "☕",
+                image: "https://images.unsplash.com/photo-1514432324607-2e2be2dba3cd?w=800&h=500&fit=crop",
+                description: "Sophisticated coffee bar with meticulous attention to detail in both bean selection and brewing.",
+                tips: "Reserve a seat at the counter to interact with the barista. Their presentation is beautiful.",
+                hours: "11:00 AM - 8:00 PM",
+                admission: "Coffee ¥800-1,200 ($5-8 USD)",
+                highlights: ["Expert brewing", "Seasonal blends", "Counter seating", "Artistic presentation"],
+                activities: ["Coffee education", "Leisurely brewing", "Conversation"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Janai+Coffee+Ebisu" }
+                ]
+            },
+
+            // CAFES - ANIMAL
+            {
+                id: 9,
+                name: "Mipig Cafe",
+                category: "Animal Cafes",
+                location: "Multiple locations (Tokyo, Osaka)",
+                lat: 35.6762,
+                lng: 139.7674,
+                emoji: "🐷",
+                image: "https://images.unsplash.com/photo-1583511655857-d19db992cb74?w=800&h=500&fit=crop",
+                description: "Adorable cafe where you can interact with miniature pigs while enjoying food and drinks.",
+                tips: "Book in advance as it gets crowded. Be gentle with the animals. Perfect for families with kids.",
+                hours: "11:00 AM - 7:00 PM (varies by location)",
+                admission: "¥1,500-2,000 ($10-13 USD) + food",
+                highlights: ["Mini pigs", "Interactive experience", "Cute photo ops", "Unique cafe concept"],
+                activities: ["Animal interaction", "Photography", "Dining", "Quality time"],
+                links: [
+                    { name: "Book Now", url: "https://tabelog.com/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Mipig+Cafe" }
+                ]
+            },
+            {
+                id: 10,
+                name: "Cafe Capyba",
+                category: "Animal Cafes",
+                location: "Tokyo",
+                lat: 35.6712,
+                lng: 139.7580,
+                emoji: "🦫",
+                image: "https://images.unsplash.com/photo-1576300788589-d92dce8f1ea9?w=800&h=500&fit=crop",
+                description: "Relax with friendly capybaras in this unique cafe experience. Watch these gentle creatures up close.",
+                tips: "Capybaras are most active in afternoon. Bring hand sanitizer. The experience is incredibly calming.",
+                hours: "10:00 AM - 6:00 PM",
+                admission: "¥1,800-2,200 ($12-15 USD) + food",
+                highlights: ["Capybaras", "Petting interactions", "Relaxing vibe", "Photo opportunities"],
+                activities: ["Animal petting", "Photography", "Snacking", "Zen experience"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Cafe+Capyba+Tokyo" }
+                ]
+            },
+            {
+                id: 11,
+                name: "Samoyed Cafe Moffu",
+                category: "Animal Cafes",
+                location: "Harajuku, Tokyo",
+                lat: 35.6656,
+                lng: 139.7022,
+                emoji: "🐕",
+                image: "https://images.unsplash.com/photo-1633722715463-d30628cad4ae?w=800&h=500&fit=crop",
+                description: "Fluffy samoyed dogs welcome you at this cozy dog cafe. Cuddle with the white fluffy pups.",
+                tips: "Allergy prone? Still enjoyable - observe from seating areas. The dogs are very well cared for and socialized.",
+                hours: "11:00 AM - 6:00 PM",
+                admission: "¥1,500-2,000 ($10-13 USD) + food",
+                highlights: ["Samoyed dogs", "Fluffy cuddles", "Cozy atmosphere", "Dog treats available"],
+                activities: ["Dog petting", "Photography", "Drinking", "Relaxation"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Samoyed+Cafe+Moffu+Harajuku" }
+                ]
+            },
+            {
+                id: 12,
+                name: "Mameshiba Cafe",
+                category: "Animal Cafes",
+                location: "Harajuku/Kyoto",
+                lat: 35.6650,
+                lng: 139.7025,
+                emoji: "🐕",
+                image: "https://images.unsplash.com/photo-1615751072497-5f5169febe17?w=800&h=500&fit=crop",
+                description: "Adorable shiba inu dog cafe with an emphasis on the dogs' comfort and welfare.",
+                tips: "Shibas have unique personalities - respect their boundaries. Arrive early for quieter time.",
+                hours: "11:00 AM - 6:00 PM",
+                admission: "¥1,000-1,500 ($7-10 USD) + food",
+                highlights: ["Shiba inu dogs", "Unique personalities", "Comfortable seating", "Cute merchandise"],
+                activities: ["Dog interaction", "Photography", "Beverages", "Gift shopping"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Mameshiba+Cafe" }
+                ]
+            },
+            {
+                id: 13,
+                name: "Chiku Chiku Cafe",
+                category: "Animal Cafes",
+                location: "Shibuya, Tokyo",
+                lat: 35.6597,
+                lng: 139.7004,
+                emoji: "🐾",
+                image: "https://images.unsplash.com/photo-1585110936519-3f2a1b0aa267?w=800&h=500&fit=crop",
+                description: "Small animal cafe featuring hamsters, rabbits, and other cute critters for interaction.",
+                tips: "Hands-on experience with small animals. Very interactive and fun for families.",
+                hours: "12:00 PM - 7:00 PM",
+                admission: "¥1,200-1,500 ($8-10 USD) + food",
+                highlights: ["Hamsters & rabbits", "Small animal care", "Educational experience", "Family friendly"],
+                activities: ["Animal handling", "Learning about care", "Photography", "Dining"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Chiku+Chiku+Cafe+Shibuya" }
+                ]
+            },
+
+            // CAFES - CHARACTER/THEMED
+            {
+                id: 14,
+                name: "Pokemon Cafe",
+                category: "Character Cafes",
+                location: "Nihombashi, Tokyo",
+                lat: 35.6730,
+                lng: 139.7758,
+                emoji: "🎮",
+                image: "https://images.unsplash.com/photo-1578821314433-4b5d3e50e3d2?w=800&h=500&fit=crop",
+                description: "Official Pokemon-themed cafe with character decorations, themed menu items, and merchandise.",
+                tips: "Reservations highly recommended. Limited seating. Each dish comes with collectible cards.",
+                hours: "11:00 AM - 8:00 PM",
+                admission: "¥2,000-4,000 ($13-27 USD) per person with food",
+                highlights: ["Pokemon theming", "Character food", "Collectible cards", "Themed decor"],
+                activities: ["Dining experience", "Collection", "Photography", "Gaming zone"],
+                links: [
+                    { name: "Reserve", url: "https://www.pokemon-cafe.jp/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Pokemon+Cafe+Nihombashi" }
+                ]
+            },
+            {
+                id: 15,
+                name: "Vampire Cafe",
+                category: "Themed Cafes",
+                location: "Tokyo",
+                lat: 35.6659,
+                lng: 139.7589,
+                emoji: "🦇",
+                image: "https://images.unsplash.com/photo-1486334803533-ddd5b0f96a22?w=800&h=500&fit=crop",
+                description: "Gothic-themed cafe with vampire aesthetics, moody lighting, and creative themed menu.",
+                tips: "Unique atmosphere - very Instagram-worthy. Perfect for adventurous eaters.",
+                hours: "5:00 PM - 11:00 PM",
+                admission: "¥2,500-3,500 ($17-23 USD) per person with food",
+                highlights: ["Gothic atmosphere", "Creative menu", "Moody lighting", "Adult-friendly vibe"],
+                activities: ["Dining", "Photography", "Evening hangout", "Friend meetup"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Vampire+Cafe+Tokyo" }
+                ]
+            },
+            {
+                id: 16,
+                name: "Egg Baby Cafe",
+                category: "Themed Cafes",
+                location: "Taito, Tokyo",
+                lat: 35.7122,
+                lng: 139.7857,
+                emoji: "🍳",
+                image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=500&fit=crop",
+                description: "Adorable egg-themed cafe with cute egg character decorations and egg-focused menu items.",
+                tips: "Perfect for families. Try the egg-based desserts. Very photogenic interior.",
+                hours: "10:00 AM - 5:00 PM",
+                admission: "¥1,500-2,500 ($10-17 USD) per person with food",
+                highlights: ["Egg-themed decor", "Cute characters", "Egg specialties", "Family atmosphere"],
+                activities: ["Meal time", "Photography", "Kids' activities", "Souvenir shopping"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Egg+Baby+Cafe+Tokyo" }
+                ]
+            },
+
+            // CAFES - OTHER
+            {
+                id: 17,
+                name: "Chano-ma Hiroshima",
+                category: "Tea Cafes",
+                location: "Hiroshima",
+                lat: 34.3852,
+                lng: 132.4532,
+                emoji: "🍵",
+                image: "https://images.unsplash.com/photo-1585518689971-910296ab4e7c?w=800&h=500&fit=crop",
+                description: "Contemporary tea cafe offering traditional Japanese tea ceremonies and matcha experiences.",
+                tips: "Book a tea ceremony in advance. Very peaceful environment. Educational about Japanese tea culture.",
+                hours: "11:00 AM - 7:00 PM",
+                admission: "¥1,500-3,000 ($10-20 USD) for tea ceremony",
+                highlights: ["Tea ceremony", "Matcha drinks", "Traditional experience", "Knowledgeable staff"],
+                activities: ["Tea ceremony", "Learning", "Meditation", "Cultural appreciation"],
+                links: [
+                    { name: "Book Ceremony", url: "https://maps.google.com/?q=Chano-ma+Hiroshima" },
+                    { name: "Learn More", url: "https://www.chano-ma.com/" }
+                ]
+            },
+            {
+                id: 18,
+                name: "Orizuru Tower Roof Top Cafe & Bar",
+                category: "Rooftop Cafes",
+                location: "Hiroshima",
+                lat: 34.3922,
+                lng: 132.4471,
+                emoji: "🏢",
+                image: "https://images.unsplash.com/photo-1539320065524-af5a7f8fd70f?w=800&h=500&fit=crop",
+                description: "Rooftop cafe with panoramic views of Hiroshima and the iconic paper cranes installation.",
+                tips: "Best visited at sunset. Romantic atmosphere for couples. Great for city views.",
+                hours: "10:00 AM - 11:00 PM",
+                admission: "Drinks ¥800-1,500 ($5-10 USD)",
+                highlights: ["Panoramic views", "Paper crane installation", "Romantic setting", "Sunset views"],
+                activities: ["Dining", "Sunset watching", "Photography", "Evening drinks"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Orizuru+Tower+Hiroshima" },
+                    { name: "Website", url: "https://www.orizurutower.jp/" }
+                ]
+            },
+
+            // ENTERTAINMENT - MUSIC VENUES
+            {
+                id: 19,
+                name: "Blue Note Tokyo",
+                category: "Live Music Venues",
+                location: "Minami-Aoyama, Tokyo",
+                lat: 35.6665,
+                lng: 139.7281,
+                emoji: "🎵",
+                image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&h=500&fit=crop",
+                description: "Premier jazz and live music venue hosting international and Japanese artists nightly.",
+                tips: "Make dinner reservations for best experience. Dress code: smart casual. Shows are typically 7:30 PM and 9:30 PM.",
+                hours: "5:00 PM - 1:00 AM",
+                admission: "¥4,500-8,000 ($30-55 USD) + drink minimum",
+                highlights: ["Live jazz performances", "International artists", "Great acoustics", "Fine dining"],
+                activities: ["Concert experience", "Fine dining", "Socializing", "Music appreciation"],
+                links: [
+                    { name: "Reserve", url: "https://www.bluenote.co.jp/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Blue+Note+Tokyo" }
+                ]
+            },
+            {
+                id: 20,
+                name: "Pit Inn",
+                category: "Live Music Venues",
+                location: "Tokyo",
+                lat: 35.6791,
+                lng: 139.7469,
+                emoji: "🎷",
+                image: "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=800&h=500&fit=crop",
+                description: "Intimate jazz club famous for discovering new talent and hosting daily live performances.",
+                tips: "More casual than Blue Note. No dinner, just drinks. Great for experiencing authentic jazz.",
+                hours: "11:30 AM - 11:00 PM (Varies by event)",
+                admission: "¥2,000-3,500 ($13-23 USD) + drink order",
+                highlights: ["Live jazz", "Intimate venue", "New talent", "Casual atmosphere"],
+                activities: ["Jazz listening", "Casual drinking", "Music discovery", "Local scene"],
+                links: [
+                    { name: "Schedule", url: "http://www.pit-inn.com/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Pit+Inn+Tokyo" }
+                ]
+            },
+
+            // BARS - COCKTAIL
+            {
+                id: 21,
+                name: "Bar Benfiddich",
+                category: "Cocktail Bars",
+                location: "Tokyo",
+                lat: 35.6717,
+                lng: 139.7298,
+                emoji: "🍸",
+                image: "https://images.unsplash.com/photo-1547557810-aab9f9e1b0e0?w=800&h=500&fit=crop",
+                description: "World-renowned cocktail bar known for innovative drinks and meticulous presentation.",
+                tips: "Difficult to get reservations - book through hotel concierge. Dress code enforced. Expect to spend ¥15,000+ per person.",
+                hours: "6:00 PM - 1:00 AM (Closed Sundays)",
+                admission: "¥15,000-20,000 ($100-135 USD) per person",
+                highlights: ["Innovative cocktails", "Expert mixology", "Premium ingredients", "Sophisticated atmosphere"],
+                activities: ["Cocktail tasting", "Mixology appreciation", "Fine dining experience"],
+                links: [
+                    { name: "Reserve", url: "https://maps.google.com/?q=Bar+Benfiddich+Tokyo" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Bar+Benfiddich" }
+                ]
+            },
+            {
+                id: 22,
+                name: "The SG Club",
+                category: "Cocktail Bars",
+                location: "Shibuya, Tokyo",
+                lat: 35.6595,
+                lng: 139.7004,
+                emoji: "🍹",
+                image: "https://images.unsplash.com/photo-1551632440-a6ad57ba8ff9?w=800&h=500&fit=crop",
+                description: "Stylish cocktail bar in the heart of Shibuya with creative drinks and modern interior.",
+                tips: "Great for before/after clubbing. Friendly staff. Good music selection.",
+                hours: "8:00 PM - 4:00 AM",
+                admission: "¥1,000-2,000 ($7-13 USD) per drink",
+                highlights: ["Creative cocktails", "Modern design", "DJ sets", "Late night scene"],
+                activities: ["Cocktail drinking", "Socializing", "Dancing", "Nightlife"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=The+SG+Club+Shibuya" }
+                ]
+            },
+            {
+                id: 23,
+                name: "L'Escamoteur Bar",
+                category: "Cocktail Bars",
+                location: "Kyoto",
+                lat: 35.0055,
+                lng: 135.7750,
+                emoji: "🎩",
+                image: "https://images.unsplash.com/photo-1536208328087-57fa68dd03d8?w=800&h=500&fit=crop",
+                description: "Magical-themed cocktail bar with illusion elements and carefully crafted vintage-style drinks.",
+                tips: "Reservations recommended. Cozy intimate setting. Perfect for date nights.",
+                hours: "7:00 PM - 2:00 AM",
+                admission: "¥1,500-2,500 ($10-17 USD) per drink",
+                highlights: ["Magic-themed", "Vintage cocktails", "Intimate atmosphere", "Artful presentation"],
+                activities: ["Cocktail tasting", "Conversation", "Date night", "Magic appreciation"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=L%27Escamoteur+Bar+Kyoto" }
+                ]
+            },
+            {
+                id: 24,
+                name: "Code Name Mixology",
+                category: "Cocktail Bars",
+                location: "Akasaka, Tokyo",
+                lat: 35.6741,
+                lng: 139.7347,
+                emoji: "🕵️",
+                image: "https://images.unsplash.com/photo-1521305584534-e7657c00b363?w=800&h=500&fit=crop",
+                description: "Speakeasy-style cocktail bar with a secret entrance and creative molecular cocktails.",
+                tips: "Look for the hidden entrance. Modern mixology with traditional techniques. Adventurous cocktails.",
+                hours: "6:00 PM - 2:00 AM (Closed Mondays)",
+                admission: "¥1,500-3,000 ($10-20 USD) per drink",
+                highlights: ["Speakeasy concept", "Molecular cocktails", "Hidden entrance", "Modern bar"],
+                activities: ["Cocktail innovation tasting", "Adventure seeking", "Socializing", "Photography"],
+                links: [
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Code+Name+Mixology+Akasaka" }
+                ]
+            },
+
+            // THEME PARKS & ATTRACTIONS
+            {
+                id: 25,
+                name: "Edo Wonderland",
+                category: "Theme Parks",
+                location: "Nikko",
+                lat: 36.7483,
+                lng: 139.6022,
+                emoji: "🎪",
+                image: "https://images.unsplash.com/photo-1518891852523-74e7b6265111?w=800&h=500&fit=crop",
+                description: "Historical theme park recreating the Edo period with authentic buildings, performances, and activities.",
+                tips: "Wear comfortable shoes - lots of walking. Try on period costumes. Go for the ninja shows and samurai performances.",
+                hours: "9:30 AM - 5:00 PM (Seasonal)",
+                admission: "¥4,700 ($31 USD) adults, ¥2,900 children",
+                highlights: ["Edo period recreation", "Ninja performances", "Samurai shows", "Costume experiences"],
+                activities: ["Period exploration", "Performance watching", "Costume wearing", "Photography"],
+                links: [
+                    { name: "Book Tickets", url: "https://www.edowonderland.net/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Edo+Wonderland" }
+                ]
+            },
+            {
+                id: 26,
+                name: "Toei Uzumasa Eigamura",
+                category: "Theme Parks",
+                location: "Kyoto",
+                lat: 35.0189,
+                lng: 135.6761,
+                emoji: "🎬",
+                image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=500&fit=crop",
+                description: "Film studio theme park showcasing Japanese cinema with sets, performances, and attractions.",
+                tips: "Perfect for anime/film fans. Samurai action shows are excellent. Allow 4-5 hours.",
+                hours: "9:00 AM - 5:00 PM (Closed Wednesdays)",
+                admission: "¥2,400 ($16 USD) adults",
+                highlights: ["Film sets", "Samurai shows", "Behind-the-scenes", "Ninja performances"],
+                activities: ["Attraction rides", "Show watching", "Set exploration", "Costume rental"],
+                links: [
+                    { name: "Official Site", url: "https://www.toei-eigamura.com/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Toei+Uzumasa+Eigamura" }
+                ]
+            },
+            {
+                id: 27,
+                name: "Universal Studio Japan - Harry Potter",
+                category: "Theme Parks",
+                location: "Osaka",
+                lat: 34.6687,
+                lng: 135.4327,
+                emoji: "⚡",
+                image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=500&fit=crop",
+                description: "Immersive Harry Potter land within Universal Studios with Hogwarts castle, wand selection, and themed attractions.",
+                tips: "Book express pass for shorter waits. Visit Butterbeer shop. Wand selection ceremony is magical. Go early.",
+                hours: "8:30 AM - 10:00 PM (Varies seasonally)",
+                admission: "¥8,400-11,400 ($56-76 USD) for park entry",
+                highlights: ["Hogwarts castle", "Butterbeer", "Wand selection", "Harry Potter attractions"],
+                activities: ["Ride experiences", "Merchandise shopping", "Butterbeer", "Photo ops"],
+                links: [
+                    { name: "Book Tickets", url: "https://www.usj.co.jp/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Universal+Studios+Japan" }
+                ]
+            },
+            {
+                id: 28,
+                name: "Tokyo Samurai Ninja Museum",
+                category: "Museums",
+                location: "Tokyo",
+                lat: 35.6762,
+                lng: 139.7474,
+                emoji: "🥷",
+                image: "https://images.unsplash.com/photo-1564399579883-451a5d44be7f?w=800&h=500&fit=crop",
+                description: "Interactive museum dedicated to samurai and ninja history with weapons, armor, and live demonstrations.",
+                tips: "Book ninja experience for hands-on learning. Very photogenic with period costumes available. 2-3 hours recommended.",
+                hours: "10:00 AM - 5:00 PM",
+                admission: "¥1,800 ($12 USD) admission + ¥3,000 ninja experience",
+                highlights: ["Samurai weapons", "Ninja training", "Period armor", "Live demonstrations"],
+                activities: ["Museum exploration", "Ninja training", "Costume wearing", "Photography"],
+                links: [
+                    { name: "Book Experience", url: "https://www.samuraininja.jp/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Samurai+Ninja+Museum+Tokyo" }
+                ]
+            },
+
+            // PRE-TRIP PREPARATION
+            {
+                id: 29,
+                name: "Studio Ghibli Movies - Pre-Trip Viewing",
+                category: "Pre-Trip Preparation",
+                location: "Home",
+                emoji: "🎬",
+                image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&h=500&fit=crop",
+                description: "Essential Studio Ghibli films to watch before your trip to enhance appreciation of Japanese culture and aesthetics.",
+                tips: "Must-watch films: Spirited Away (magical bathhouse), My Neighbor Totoro (childhood wonder), Howl's Moving Castle (romantic adventure).",
+                hours: "Anytime before trip",
+                admission: "Purchase or stream",
+                highlights: ["Spirited Away", "My Neighbor Totoro", "Howl's Moving Castle", "Ponyo"],
+                activities: ["Film watching", "Cultural immersion", "Aesthetic appreciation", "Family bonding"],
+                links: [
+                    { name: "Netflix", url: "https://www.netflix.com/" },
+                    { name: "Amazon Prime", url: "https://www.primevideo.com/" }
+                ]
+            },
+
+            // MUSEUMS & ATTRACTIONS
+            {
+                id: 30,
+                name: "Studio Ghibli Museum",
+                category: "Museums",
+                location: "Mitaka, Tokyo",
+                lat: 35.6708,
+                lng: 139.5531,
+                emoji: "🎨",
+                image: "https://images.unsplash.com/photo-1507842620763-b50b9b5f1081?w=800&h=500&fit=crop",
+                description: "Dedicated museum showcasing the works, history, and artistry of Studio Ghibli. Features original artwork, animation cells, and exclusive exhibits.",
+                tips: "Book tickets in advance online. Photography is not allowed inside. Allocate 2-3 hours. Visit the themed cafe and gift shop.",
+                hours: "10:00 AM - 5:00 PM (Closed Tuesdays)",
+                admission: "¥1,000 ($7 USD) adults, ¥700 students",
+                highlights: ["Original artwork", "Animation cells", "Spirited Away exhibit", "Exclusive merchandise", "Museum cafe"],
+                activities: ["Artwork viewing", "Anime appreciation", "Photography outside", "Souvenir shopping"],
+                links: [
+                    { name: "Book Tickets", url: "https://www.japanconcerttickets.com/studio-ghibli-museum/" },
+                    { name: "Official Site", url: "http://www.ghibli-museum.jp/en/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Studio+Ghibli+Museum" }
+                ]
+            },
+
+            {
+                id: 31,
+                name: "Studio Ghibli Park",
+                category: "Theme Parks",
+                location: "Nagakute, Aichi",
+                lat: 35.1833,
+                lng: 137.0667,
+                emoji: "🎡",
+                image: "https://images.unsplash.com/photo-1506700673182-b1fabc00bbb5?w=800&h=500&fit=crop",
+                description: "Immersive Ghibli-themed park featuring themed areas, walking paths through magical forests, and iconic locations from the films.",
+                tips: "Different areas open on rotating schedules. Book in advance. Wear comfortable walking shoes. Bring water and snacks.",
+                hours: "9:00 AM - 5:00 PM (Closed Tuesdays, varies by season)",
+                admission: "¥2,500-3,200 ($17-21 USD) depending on areas",
+                highlights: ["Howl's Moving Castle setting", "Spirited Away themed area", "Totoro forest walk", "Studio exhibits"],
+                activities: ["Park exploration", "Photo opportunities", "Film location visits", "Themed dining"],
+                links: [
+                    { name: "Book Tickets", url: "https://www.ghibli-park.jp/" },
+                    { name: "Official Site", url: "https://www.ghibli-park.jp/" },
+                    { name: "Google Maps", url: "https://maps.google.com/?q=Studio+Ghibli+Park" }
+                ]
+            },
+
+            // CONCERTS & LIVE EVENTS
+            {
+                id: 32,
+                name: "Benson Boone in Tokyo",
+                category: "Concerts & Events",
+                location: "Tokyo",
+                lat: 35.6762,
+                lng: 139.7474,
+                emoji: "🎤",
+                image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=500&fit=crop",
+                description: "Live concert performance by Benson Boone in Tokyo. Experience the talented singer-songwriter's music in an intimate Tokyo venue.",
+                tips: "Get tickets early - concerts sell out quickly. Check venue details and transportation. Plan for pre-concert dinner at nearby restaurants.",
+                hours: "October 29, 2026",
+                admission: "¥5,000-8,000 ($33-53 USD) depending on seating",
+                highlights: ["Live performance", "Fan experience", "Tokyo venue", "International artist"],
+                activities: ["Concert experience", "Meet fans", "Merchandise shopping", "Souvenir collection"],
+                links: [
+                    { name: "Buy Tickets", url: "https://www.japanconcerttickets.com/event/benson-boone-in-tokyo-2026-10-29/" },
+                    { name: "Artist Info", url: "https://www.bensonboonemusic.com/" }
+                ]
+            },
+
+            {
+                id: 33,
+                name: "Masayoshi Takanaka in Isesaki",
+                category: "Concerts & Events",
+                location: "Isesaki, Gunma",
+                lat: 36.3247,
+                lng: 139.2002,
+                emoji: "🎸",
+                image: "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=800&h=500&fit=crop",
+                description: "Live concert by legendary guitarist Masayoshi Takanaka. Experience the legendary guitarist's smooth jazz and fusion music.",
+                tips: "Takanaka is a legendary figure in Japanese fusion guitar. Early ticket purchase recommended. Bring comfortable concert attire.",
+                hours: "November 1, 2026",
+                admission: "¥6,000-9,000 ($40-60 USD)",
+                highlights: ["Legendary guitarist", "Fusion jazz", "Live band", "Intimate venue"],
+                activities: ["Guitar performance", "Music appreciation", "Fan gathering", "Merchandise"],
+                links: [
+                    { name: "Buy Tickets", url: "https://www.japanconcerttickets.com/event/masayoshi-takanaka-in-isesaki-2026-11-01/" },
+                    { name: "Artist Info", url: "https://www.masayoshi-takanaka.jp/" }
+                ]
+            }
+        ];
+
+        const categories = [...new Set(locations.map(l => l.category))].sort();
+        let currentView = 'grid';
+        let filteredLocations = [...locations];
+
+        function initializeApp() {
+            renderCategoryFilters();
+            renderLocations();
+        }
+
+        function renderCategoryFilters() {
+            const filterContainer = document.getElementById('categoryFilter');
+            filterContainer.innerHTML = '';
+
+            const allBtn = document.createElement('button');
+            allBtn.className = 'filter-btn active';
+            allBtn.textContent = 'All';
+            allBtn.onclick = () => filterByCategory('all');
+            filterContainer.appendChild(allBtn);
+
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = cat;
+                btn.onclick = () => filterByCategory(cat);
+                filterContainer.appendChild(btn);
             });
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function filterByCategory(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (category === 'all') {
+                filteredLocations = [...locations];
+            } else {
+                filteredLocations = locations.filter(l => l.category === category);
+            }
+            filterBySearch();
+        }
+
+        function filterBySearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const results = filteredLocations.filter(loc =>
+                loc.name.toLowerCase().includes(searchTerm) ||
+                loc.location.toLowerCase().includes(searchTerm) ||
+                loc.category.toLowerCase().includes(searchTerm) ||
+                loc.description.toLowerCase().includes(searchTerm)
+            );
+            renderLocations(results);
+        }
+
+        function renderLocations(items = filteredLocations) {
+            const grid = document.getElementById('itemsGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (items.length === 0) {
+                grid.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            grid.innerHTML = items.map((loc, idx) => `
+                <div class="card" style="animation-delay: ${idx * 0.05}s">
+                    <div class="card-image" style="background-image: url('${loc.image}'); background-size: cover; background-position: center; color: transparent;">
+                        <span style="color: white; font-size: 4em; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">${loc.emoji}</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">${loc.category}</div>
+                        <h3>${loc.name}</h3>
+                        <div class="card-location">${loc.location}</div>
+                        <p class="card-description">${loc.description}</p>
+                        <div class="card-tips"><strong>💡 Tip:</strong> ${loc.tips}</div>
+                        <div class="card-footer">
+                            <div class="rating">${'★'.repeat(5)}</div>
+                            <button class="btn-details" onclick="openModal(${loc.id})">Details</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModal(id) {
+            const location = locations.find(l => l.id === id);
+            const modalBody = document.getElementById('modalBody');
+
+            const mapSection = location.lat && location.lng ? `
+                <div class="modal-section">
+                    <h4>🗺️ Location Map</h4>
+                    <iframe class="modal-map" src="https://maps.google.com/maps?q=${location.lat},${location.lng}&z=15&output=embed" frameborder="0"></iframe>
+                    <a href="https://maps.google.com/?q=${location.lat},${location.lng}" target="_blank" class="map-button">📍 Open in Google Maps</a>
+                </div>
+            ` : '';
+
+            const linksSection = location.links && location.links.length > 0 ? `
+                <div class="modal-section">
+                    <h4>🔗 Quick Links</h4>
+                    <div class="modal-links">
+                        ${location.links.map(link => `<a href="${link.url}" target="_blank">🔗 ${link.name}</a>`).join('')}
+                    </div>
+                </div>
+            ` : '';
+
+            modalBody.innerHTML = `
+                <div class="modal-image" style="background-image: url('${location.image}'); background-size: cover; background-position: center;">
+                    <span style="font-size: 4em; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">${location.emoji}</span>
+                </div>
+                <h2>${location.name}</h2>
+
+                ${linksSection}
+
+                <div class="modal-section">
+                    <h4>📍 Location</h4>
+                    <p>${location.location}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4>📝 About</h4>
+                    <p>${location.description}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4>⏰ Hours</h4>
+                    <p>${location.hours}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4>💰 Admission</h4>
+                    <p>${location.admission}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4>✨ Highlights</h4>
+                    <ul>${location.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+                </div>
+
+                <div class="modal-section">
+                    <h4>🎯 Activities</h4>
+                    <ul>${location.activities.map(a => `<li>${a}</li>`).join('')}</ul>
+                </div>
+
+                <div class="modal-section">
+                    <h4>💡 Pro Tips</h4>
+                    <p>${location.tips}</p>
+                </div>
+
+                ${mapSection}
+            `;
+
+            document.getElementById('detailsModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('detailsModal').classList.remove('active');
+        }
+
+        function switchView(view) {
+            currentView = view;
+            document.querySelectorAll('.view-toggle button').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
         }
 
-        function toggleDay(header) {
-            const dayCard = header.closest('.day-card');
-            dayCard.classList.toggle('collapsed');
-        }
-
-        // Start with all days collapsed
-        document.querySelectorAll('.day-card').forEach(card => {
-            card.classList.remove('collapsed');
+        document.getElementById('searchInput').addEventListener('input', filterBySearch);
+        document.addEventListener('click', (e) => {
+            if (e.target.id === 'detailsModal') closeModal();
         });
+
+        initializeApp();
     </script>
 </body>
 </html>
