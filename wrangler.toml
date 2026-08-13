@@ -1,11 +1,11 @@
-name = "japan-trip-ideas"
-type = "javascript"
+name = "japan"
+main = "src/index.js"
 compatibility_date = "2024-08-13"
 
-# Cloudflare Pages configuration
-pages_build_output_dir = "public"
-
 [env.production]
-routes = [
-  { pattern = "yonatanyadgar.com/japan_ideas", zone_name = "yonatanyadgar.com" }
-]
+route = "yonatanyadgar.com/japan_ideas"
+zone_id = "2d14ab6a1b787853ee47262f17db8bba"
+
+[build]
+command = "npm install"
+cwd = "./"

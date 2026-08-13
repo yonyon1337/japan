@@ -1,0 +1,15 @@
+{
+  "name": "japan-trip-guide",
+  "version": "1.0.0",
+  "description": "Japan family trip guide with 33 locations",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "echo 'Building..'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
