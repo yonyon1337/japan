@@ -1,11 +1,4 @@
 name = "japan"
 main = "src/index.js"
 compatibility_date = "2024-08-13"
-
-[env.production]
-route = "yonatanyadgar.com/japan_ideas"
-zone_id = "2d14ab6a1b787853ee47262f17db8bba"
-
-[build]
-command = "npm install"
-cwd = "./"
+account_id = "2d14ab6a1b787853ee47262f17db8bba"
